@@ -1,0 +1,286 @@
+package hhh;
+import java.util.Scanner;
+public class additionquiz {
+	public static void main(String[] args){
+		int number1=(int)(System.currentTimeMillis()%10);
+		int number2=(int)(System.currentTimeMillis()/10%10);
+		
+		//create a scanner
+		Scanner input=new Scanner(System.in);
+		
+		System.out.print("What is "+number1+" + "+number2+"?");
+		
+		int answer=input.nextInt();
+		System.out.println(number1+"+"+number2+"="+answer+" is "+(number1+number2==answer));
+	
+	}
+}
+
+package hhh;
+import java.util.Scanner;
+public class additionquiz {
+	public static void main(String[] args){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Enter an integer:");
+		int number=input.nextInt();
+		
+		if(number%5==0){
+			System.out.println("HiFive");
+		}
+		if(number%2==0){
+			System.out.println("HiEven");
+		}
+	
+	}
+}
+
+package hhh;
+import java.util.Scanner;
+public class additionquiz {
+	public static void main(String[] args){
+		//generate two random single-digit integers
+		int number1=(int)(Math.random()*10);
+		int number2=(int)(Math.random()*10);
+		//if number1<number2,swap number1 with number2
+		if(number1<number2){
+			int temp=number1;
+			number1=number2;
+			number2=temp;
+		}
+		//prompt the student to answer "What is number1-number2?"
+		System.out.print("What is"+number1+" - "+number2+"?");
+		Scanner input=new Scanner(System.in);
+		int answer=input.nextInt();
+		//grade the answer and display the result
+		if(number1-number2==answer)
+			System.out.println("You are correct!");
+		else{
+			System.out.println("Your answer is wrong.");
+			System.out.println(number1+" - "+number2+"should be "+(number1-number2));
+		}
+	}
+}
+
+package hhh;
+import java.util.Scanner;
+public class additionquiz {
+	public static void main(String[] args){
+		Scanner input=new Scanner(System.in);
+		
+		//prompt the user to enter weight in pounds
+		System.out.print("Enter weight in pounds:");
+		double weight=input.nextDouble();
+		
+		//prompt the user to enter height in inches
+		System.out.print("Enter height in inches:");
+		double height=input.nextDouble();
+		
+		final double KILOGRAMS_PER_POUNDS=0.45359237;//Constant
+		final double METER_PER_INCH=0.0254;//constant
+		
+		//compute BMI
+		double weightInKilograms=weight*KILOGRAMS_PER_POUNDS;
+		double heightInMeters=height*METER_PER_INCH;
+		double bmi=weightInKilograms/(heightInMeters*heightInMeters);
+		
+		//Display the result
+		System.out.println("BMI is "+bmi);
+		if(bmi<18.5)
+			System.out.println("Underweight");
+		else if(bmi<25)
+			System.out.println("Normal");
+		else if(bmi<30)
+			System.out.println("Overweight");
+		else
+			System.out.println("Obese");		
+	}
+}
+
+package hhh;
+import java.util.Scanner;
+public class additionquiz {
+	public static void main(String[] args){
+		Scanner input=new Scanner(System.in);
+		
+		//prompt the user to enter filing status
+		System.out.print("(0-single-filer,1-married jointly or "+"qualifying widow(er),2-married separately,3-heads of"+"household)Enter the filing status:");
+		
+		int status=input.nextInt();
+		
+		//prompt the user to enter taxable income
+		System.out.print("Enter the taxable income: ");
+		double income=input.nextDouble();
+		
+		//compute tax
+		double tax=0;
+		
+		if(status==0){//compute tax for single filers
+			if(income<=8350)
+				tax=income*0.10;
+			else if(income<=33950)
+				tax=8350*0.10+(income-8350)*0.15;
+			else if(income<=82250)
+				tax=8350*0.10+(33950-8350)*0.15+(income-33950)*0.25;
+			else if(income<=171550)
+				tax=8350*0.10+(33950-8350)*0.15+(82250-33950)*0.25+(income-82250)*0.28;
+			else if(income<=372950)
+				tax=8350*0.10+(33950-8350)*0.15+(82250-33950)*0.25+(171550-82250)*0.28+(income-171550)*0.33;
+			else
+				tax=8350*0.10+(33950-8350)*0.15+(82250-33950)*0.25+(171550-82250)*0.28+(372950-171550)*0.33+(income-372950)*0.35;
+		}
+		else if(status==1)
+		{//compute tax for single filers
+			if(income<=16170)
+				tax=income*0.10;
+			else if(income<=67900)
+				tax=16170*0.10+(income-16700)*0.15;
+			else if(income<=137050)
+				tax=16170*0.10+(67900-16700)*0.15+(income-67900)*0.25;
+			else if(income<=208850)
+				tax=16170*0.10+(67900-16700)*0.15+(137050-67900)*0.25+(income-137050)*0.28;
+			else if(income<=372950)
+				tax=16170*0.10+(67900-16700)*0.15+(137050-67900)*0.25+(208850-137050)*0.28+(income-208850)*0.33;
+			else
+				tax=16170*0.10+(67900-16700)*0.15+(137050-67900)*0.25+(208850-137050)*0.28+(372950-208850)*0.33+(income-372950)*0.35;
+		}
+		else if(status==2){
+			if(income<=8350)
+				tax=income*0.10;
+			else if(income<=33950)
+				tax=8350*0.10+(income-8350)*0.15;
+			else if(income<=82250)
+				tax=8350*0.10+(33950-8350)*0.15+(income-33950)*0.25;
+			else if(income<=171550)
+				tax=8350*0.10+(33950-8350)*0.15+(82250-33950)*0.25+(income-82250)*0.28;
+			else if(income<=372950)
+				tax=8350*0.10+(33950-8350)*0.15+(82250-33950)*0.25+(171550-82250)*0.28+(income-171550)*0.33;
+			else
+				tax=8350*0.10+(33950-8350)*0.15+(82250-33950)*0.25+(171550-82250)*0.28+(372950-171550)*0.33+(income-372950)*0.35;
+		}
+		else if(status==3){
+			if(income<=8350)
+				tax=income*0.10;
+			else if(income<=33950)
+				tax=8350*0.10+(income-8350)*0.15;
+			else if(income<=82250)
+				tax=8350*0.10+(33950-8350)*0.15+(income-33950)*0.25;
+			else if(income<=171550)
+				tax=8350*0.10+(33950-8350)*0.15+(82250-33950)*0.25+(income-82250)*0.28;
+			else if(income<=372950)
+				tax=8350*0.10+(33950-8350)*0.15+(82250-33950)*0.25+(171550-82250)*0.28+(income-171550)*0.33;
+			else
+				tax=8350*0.10+(33950-8350)*0.15+(82250-33950)*0.25+(171550-82250)*0.28+(372950-171550)*0.33+(income-372950)*0.35;
+		}
+		else{
+			System.out.println("Error:invalid status");
+			System.exit(1);
+		}
+			System.out.println("Tax is"+(int)(tax*100)/100.0);		
+	}
+}
+
+
+package hhh;
+import java.util.Scanner;
+public class additionquiz {
+	public static void main(String[] args){
+		Scanner input=new Scanner(System.in);
+		
+		//receive an input
+		System.out.print("Enter an integer:");
+		int number=input.nextInt();
+		
+		if(number%2==0 && number%3==0){
+			System.out.println(number+" is divisable by 2 and 3.");
+		}
+		if(number%2==0 || number%3==0){
+			System.out.println(number+" is divisable by 2 or 3.");
+	    }
+		if(number%2==0 ^ number%3==0){
+			System.out.println(number+" is divisable by 2 or 3,but not both.");
+	    }
+	}
+}
+
+import java.util.Scanner;
+
+public class hw {
+
+	public static void main(String[] args) {
+		//create a scanner
+		Scanner input=new Scanner(System.in);
+		
+		System.out.print("Enter a year:");
+		int year=input.nextInt();
+		
+		//check if the year is a leap year
+		boolean isLeapYear=
+				(year%4==0 && year%100!=0)||(year%400==0);
+		System.out.println(year+" is a leap year?"+ isLeapYear);
+	}
+
+}
+
+
+import java.util.Scanner;
+
+public class hw {
+
+	public static void main(String[] args) {
+		//Generate a lottery number
+		int lottery=(int)(Math.random()*100);
+		
+		//Prompt the user to enter a guess
+		Scanner input=new Scanner(System.in);
+		System.out.print("Enter your lottery pick(two digits):");
+		int guess=input.nextInt();
+		
+		//Get digits from lottery
+		int lotteryDigit1=lottery/10;
+		int lotteryDigit2=lottery%10;
+		
+		//Get digits from guess
+		int guessDigit1=guess/10;
+		int guessDigit2=guess%10;
+		System.out.print("The lottery number is "+lottery);
+		
+		//check the guess
+		if(guess==lottery)
+			System.out.println("Exact match:you win $10000");
+		else if(guessDigit1==lotteryDigit2&&guessDigit2==lotteryDigit1)
+			System.out.println("Match all digits: you win $3000");
+		else if(guessDigit1==lotteryDigit1||guessDigit2==lotteryDigit2||guessDigit1==lotteryDigit2||guessDigit2==lotteryDigit1)
+			System.out.println("Match one digits: you win $1000");
+		else
+			System.out.println("Sorry,no match");
+	}
+
+}
+
+
+import java.util.Scanner;
+
+public class hw {
+
+	public static void main(String[] args) {	
+		Scanner input=new Scanner(System.in);
+		System.out.print("Enter a year:");
+		int year=input.nextInt();
+		
+		switch(year%12) {
+		case 0:System.out.println("monkey");break;
+		case 1:System.out.println("rooster");break;
+		case 2:System.out.println("dog");break;
+		case 3:System.out.println("pig");break;
+		case 4:System.out.println("rat");break;
+		case 5:System.out.println("ox");break;
+		case 6:System.out.println("tiger");break;
+		case 7:System.out.println("rabbit");break;
+		case 8:System.out.println("dragon");break;
+		case 9:System.out.println("snake");break;
+		case 10:System.out.println("horse");break;
+		case 11:System.out.println("sheep");
+		}
+	}
+
+}
